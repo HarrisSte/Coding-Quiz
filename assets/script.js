@@ -3,7 +3,18 @@
 // var timer = document.querySelector("#timer");
 // var time_limit = 90;
 
+//Variables
+var header = document.querySelector(".header");
+var score = document.querySelector("score");
+var submitButton = document.getElementById("submitButton");
 
+var questionsHeader = document.getElementByIdI("questionHeader");
+var choice1 = document.getElementById("one");
+var choice2 = document.getElementById("two");
+var choice3 = document.getElementById("three");
+var choice4 = document.getElementById("four");
+var choice5 = document.getElementById("five");
+var choice6 = document.getElementById("six");
 
 //Countdown timer 
 const timeH = document.querySelector('h1');
@@ -29,3 +40,5 @@ function displayTime(second){
 function endTime() {
     timeH.innerHTML = 'Out of time!'
 }
+
+//Starting page
