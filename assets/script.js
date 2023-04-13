@@ -27,5 +27,5 @@ function displayTime(second){
 }
 
 function endTime() {
-    timeH.innerHTML = 'time out'
+    timeH.innerHTML = 'Out of time!'
 }
