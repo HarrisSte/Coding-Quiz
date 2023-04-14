@@ -85,6 +85,10 @@ function codeQuiz() {
   timer.textContent = "Time: " + startScore;
 }
 
+function resetVariables() {
+  startScore = 0;
+  questionIndex = 0;
+}
 //starting the quiz to bring you to questions
 function startQuiz() {
   challengePage.style.display = "none";
@@ -106,7 +110,7 @@ function startQuiz() {
 function showQuestions() {
   var q = quizQuestions[questionIndex];
 
-  questionsHeader.innerHTML = q.questionHeader;
+  questionsHeader.innerHTML = q.questionsHeader;
   choice1.innerHTML = q.one;
   choice1.setAttribute("data-answer", q.one);
 }
