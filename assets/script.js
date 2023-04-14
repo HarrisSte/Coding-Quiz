@@ -8,7 +8,7 @@ var choice1 = document.getElementById("one");
 var choice2 = document.getElementById("two");
 var choice3 = document.getElementById("three");
 var choice4 = document.getElementById("four");
-var correct = document.getElementById("correct");
+var correct = document.getElementById("answer");
 var answerResponse = document.getElementById("answerResponse");
 
 var finalScore = document.getElementById("finalScore");
@@ -31,6 +31,7 @@ var timer = document.getElementById("timer");
 //Starting page
 
 //Multiple-choice questions - 6 total
+//Try to show correct answers
 var quizQuestions = [
   {
     questionsHeader: "What is an example of a Boolean response?",
@@ -38,36 +39,52 @@ var quizQuestions = [
     two: "true/false", correct: true,
     three: "London", correct: false,
     four: "Paris", correct: false,
+    correct: "true/false",
+  },
+
+  {
+    questionsHeader: "What is the purpose of HTML?",
+    one: "Setting the structure of the application", correct: true,
+    two: "true/false", correct: false,
+    three: "London", correct: false,
+    four: "Paris", correct: false,
+    correct: "Setting the structure of the application",
   },
 
   {
     questionsHeader: "What is an example of a fruit ?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 1,
+    one: "banana", correct: false,
+    two: "true/false", correct: true,
+    three: "London", correct: false,
+    four: "Paris", correct: false,
+    correct: "true/false",
   },
 
   {
     questionsHeader: "What is an example of a fruit ?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 1,
+    one: "banana", correct: false,
+    two: "true/false", correct: true,
+    three: "London", correct: false,
+    four: "Paris", correct: false,
+    correct: "true/false",
   },
 
   {
     questionsHeader: "What is an example of a fruit ?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 1,
+    one: "banana", correct: false,
+    two: "true/false", correct: true,
+    three: "London", correct: false,
+    four: "Paris", correct: false,
+    correct: "true/false",
   },
 
   {
     questionsHeader: "What is an example of a fruit ?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 1,
-  },
-
-  {
-    questionsHeader: "What is an example of a fruit ?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 1,
+    one: "banana", correct: false,
+    two: "true/false", correct: true,
+    three: "London", correct: false,
+    four: "Paris", correct: false,
+    correct: "true/false",
   },
 ];
 
