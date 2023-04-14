@@ -13,9 +13,11 @@ var choice6 = document.getElementById("six");
 var correct = document.getElementById("correct");
 var answerResponse = document.getElementById("answerResponse");
 
+var finalScore = document.getElementById("finalScore");
 var quizQuestions = document.getElementById("quizQuestions");
 var questionButton = document.querySelector(".questionButton");
 
+var challengePage = document.getElementById("challengePage");
 var finalScore = document.getElementById("finalScore");
 
 
