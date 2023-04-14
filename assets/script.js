@@ -113,6 +113,21 @@ function showQuestions() {
   questionsHeader.innerHTML = q.questionsHeader;
   choice1.innerHTML = q.one;
   choice1.setAttribute("data-answer", q.one);
+  questionsHeader.innerHTML = q.questionsHeader;
+  choice2.innerHTML = q.two;
+  choice2.setAttribute("data-answer", q.two);
+  questionsHeader.innerHTML = q.questionsHeader;
+  choice3.innerHTML = q.three;
+  choice3.setAttribute("data-answer", q.three);
+  questionsHeader.innerHTML = q.questionsHeader;
+  choice4.innerHTML = q.four;
+  choice4.setAttribute("data-answer", q.four);
+  questionsHeader.innerHTML = q.questionsHeader;
+  choice5.innerHTML = q.five;
+  choice5.setAttribute("data-answer", q.five);
+  questionsHeader.innerHTML = q.questionsHeader;
+  choice6.innerHTML = q.six;
+  choice6.setAttribute("data-answer", q.six);
 }
 
 //EL when user clicks
