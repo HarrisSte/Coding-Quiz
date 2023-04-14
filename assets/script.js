@@ -10,12 +10,36 @@ var choice3 = document.getElementById("three");
 var choice4 = document.getElementById("four");
 var choice5 = document.getElementById("five");
 var choice6 = document.getElementById("six");
+var correct = document.getElementById("correct");
+
+var quizQuestions = document.getElementById("quizQuestions");
 
 var answerResponse = document.getElementById("answerResponse");
 var quizQuestions = document.getElementById("quizQuestions");
 var questionButton = document.querySelector(".questionButton");
 
 var finalScore = document.getElementById("finalScore");
+
+
+//Starting page
+
+//Multiple-choice questions - 6 total
+var quizQuestions = [
+  {
+    questionHeader: "What is an example of a Boolean response?",
+    choices: ["banana", "true/false", "London", "Random"],
+    answer: 2,
+  },
+
+  {
+    questionHeader: "What is an example of a fruit ?",
+    choices: ["banana", "true/false", "London", "Random"],
+    answer: 1,
+  },
+];
+
+//Try to get questions to show up
+
 
 //Countdown timer
 const timeH = document.querySelector("h1");
@@ -41,23 +65,6 @@ function displayTime(second) {
 function endTime() {
   timeH.innerHTML = "Out of time!";
 }
-
-//Starting page
-
-//Multiple-choice questions - 6 total
-var quizQuestions = [
-  {
-    questionHeader: "What is an example of a Boolean response?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 2,
-  },
-
-  {
-    questionHeader: "What is an example of a fruit ?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 1,
-  },
-];
 
 var startScore = 0;
 var questionIndex = 0;
