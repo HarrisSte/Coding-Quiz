@@ -89,6 +89,7 @@ function resetVariables() {
   startScore = 0;
   questionIndex = 0;
 }
+
 //starting the quiz to bring you to questions
 function startQuiz() {
   challengePage.style.display = "none";
@@ -130,8 +131,17 @@ showQuestions();
 choice1.addEventListener("click", function (event) {
   checkAnswer(event);
 });
+choice2.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
+choice3.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
+choice4.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
 
-
+//Try to fix check answer
 
 //Countdown timer
 // const timeH = document.querySelector("h1");
@@ -160,9 +170,6 @@ choice1.addEventListener("click", function (event) {
 
 var startScore = 0;
 var questionIndex = 0;
-
-
-
 
 //addeventListers for answers when clicked
 submitButton.addEventListener("click", function () {
