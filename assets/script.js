@@ -11,10 +11,8 @@ var choice4 = document.getElementById("four");
 var choice5 = document.getElementById("five");
 var choice6 = document.getElementById("six");
 var correct = document.getElementById("correct");
-
-var quizQuestions = document.getElementById("quizQuestions");
-
 var answerResponse = document.getElementById("answerResponse");
+
 var quizQuestions = document.getElementById("quizQuestions");
 var questionButton = document.querySelector(".questionButton");
 
@@ -36,10 +34,45 @@ var quizQuestions = [
     choices: ["banana", "true/false", "London", "Random"],
     answer: 1,
   },
+
+  {
+    questionHeader: "What is an example of a fruit ?",
+    choices: ["banana", "true/false", "London", "Random"],
+    answer: 1,
+  },
+
+  {
+    questionHeader: "What is an example of a fruit ?",
+    choices: ["banana", "true/false", "London", "Random"],
+    answer: 1,
+  },
+
+  {
+    questionHeader: "What is an example of a fruit ?",
+    choices: ["banana", "true/false", "London", "Random"],
+    answer: 1,
+  },
+
+  {
+    questionHeader: "What is an example of a fruit ?",
+    choices: ["banana", "true/false", "London", "Random"],
+    answer: 1,
+  },
 ];
 
 //Try to get questions to show up
+function showQuestions() {
+  var q = quizQuestions[questionIndex];
+  questionsHeader.innerHTML = q=quizQuestions;
+  choice1.innerHTML = q.one;
+  choice1.setAttribute("data-answer", q.one);
+}
 
+//EL when user clicks
+showQuestions();
+choice1.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
 
 //Countdown timer
 const timeH = document.querySelector("h1");
