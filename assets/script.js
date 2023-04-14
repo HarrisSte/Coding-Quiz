@@ -8,8 +8,6 @@ var choice1 = document.getElementById("one");
 var choice2 = document.getElementById("two");
 var choice3 = document.getElementById("three");
 var choice4 = document.getElementById("four");
-// var choice5 = document.getElementById("five");
-// var choice6 = document.getElementById("six");
 var correct = document.getElementById("correct");
 var answerResponse = document.getElementById("answerResponse");
 
@@ -25,7 +23,7 @@ var initialButton = document.getElementById("initialButton");
 var initials = document.getElementById("initials");
 var initialInput = document.getElementById("initialInput");
 
-var allDone = document.getElementById("allDone");
+var allDone = document.getElementById("quizComplete");
 var allDoneButtons = document.getElementById("form-inline");
 
 var timer = document.getElementById("timer");
@@ -36,8 +34,10 @@ var timer = document.getElementById("timer");
 var quizQuestions = [
   {
     questionsHeader: "What is an example of a Boolean response?",
-    choices: ["banana", "true/false", "London", "Random"],
-    answer: 2,
+    one: "banana", correct: false,
+    two: "true/false", correct: true,
+    three: "London", correct: false,
+    four: "Paris", correct: false,
   },
 
   {
