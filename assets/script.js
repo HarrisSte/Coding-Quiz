@@ -63,6 +63,9 @@ var quizQuestions = [
   },
 ];
 
+var startScore = 0;
+var questionIndex = 0;
+
 //Try to get questions to show up
 function showQuestions() {
   var q = quizQuestions[questionIndex];
