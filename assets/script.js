@@ -12,29 +12,29 @@ var choice5 = document.getElementById("five");
 var choice6 = document.getElementById("six");
 var answerResponse = document.getElementById("answerResponse");
 
-//Countdown timer 
-const timeH = document.querySelector('h1');
+//Countdown timer
+const timeH = document.querySelector("h1");
 let timeSecond = 90;
 
-displayTime(timeSecond)
+displayTime(timeSecond);
 
-const countDown = setInterval (()=> {
-    timeSecond--;
-    displayTime(timeSecond);
-    if(timeSecond <= 0 || timeSecond < 1) {
-        endTime();
-        clearInterval(countDown);
-    }
-},1000)
+const countDown = setInterval(() => {
+  timeSecond--;
+  displayTime(timeSecond);
+  if (timeSecond <= 0 || timeSecond < 1) {
+    endTime();
+    clearInterval(countDown);
+  }
+}, 1000);
 
-function displayTime(second){
-    const min = Math.floor(second / 60);
-    const sec = Math.floor(second % 60);
-    timeH.innerHTML= `${min<10 ? '0': ''}${min}:${sec<10?'0':''}${sec}`
+function displayTime(second) {
+  const min = Math.floor(second / 60);
+  const sec = Math.floor(second % 60);
+  timeH.innerHTML = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
 }
 
 function endTime() {
-    timeH.innerHTML = 'Out of time!'
+  timeH.innerHTML = "Out of time!";
 }
 
 //Starting page
