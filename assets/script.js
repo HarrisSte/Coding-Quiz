@@ -18,7 +18,7 @@ var quizQuestions = document.getElementById("quizQuestions");
 var questionButton = document.querySelector(".questionButton");
 
 var challengePage = document.getElementById("challengePage");
-var finalScore = document.getElementById("finalScore");
+var finalScore = document.getElementById("finalScorePage");
 
 var timer = document.getElementById("timer");
 
