@@ -62,15 +62,20 @@ var quizQuestions = [
 var startScore = 0;
 var questionIndex = 0;
 
+function startQuiz () {
+    challengePage.style.display = "none";
+    quizQuestions.style.display = "none";
+
+}
+
 //Initial page when first starting - set attributes
 function codeQuiz() {
-    challengePage.style.display = 'block';
-    header.style.display = 'block';
-    quizQuestions.style.display = 'none';
-    finalScore.style.display = 'none';
+  challengePage.style.display = "block";
+  header.style.display = "block";
+  quizQuestions.style.display = "none";
+  finalScore.style.display = "none";
 }
 //addeventListers for answers when clicked
-submitButton.addEventListener("click",function () {
-    startQuiz();
-    
-})
+submitButton.addEventListener("click", function () {
+  startQuiz();
+});
