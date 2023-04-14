@@ -1,5 +1,5 @@
 //Variables
-var header = document.querySelector(".header");
+var header = document.querySelector(".main-header");
 var score = document.querySelector("score");
 var submitButton = document.getElementById("submitButton");
 
@@ -105,6 +105,16 @@ choice1.addEventListener("click", function (event) {
 var startScore = 0;
 var questionIndex = 0;
 
+//Initial page when first starting - set attributes
+function codeQuiz() {
+  challengePage.style.display = "block";
+  header.style.display = "block";
+  quizQuestions.style.display = "none";
+  finalScore.style.display = "none";
+
+  var startScore = 0;
+  timer.textContent = "Time: " + startScore;
+}
 //starting the quiz to bring you to questions
 function startQuiz() {
   challengePage.style.display = "none";
@@ -122,13 +132,7 @@ function startQuiz() {
   }, 1000);
 }
 
-//Initial page when first starting - set attributes
-function codeQuiz() {
-  challengePage.style.display = "block";
-  header.style.display = "block";
-  quizQuestions.style.display = "none";
-  finalScore.style.display = "none";
-}
+
 //addeventListers for answers when clicked
 submitButton.addEventListener("click", function () {
   startQuiz();
