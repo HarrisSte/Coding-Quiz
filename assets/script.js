@@ -39,11 +39,11 @@ var quizQuestions = [
     correct: false,
     two: "True/false",
     correct: true,
-    three: "Use of numbers",
+    three: "use of numbers",
     correct: false,
     four: "An array with quotes",
     correct: false,
-    correct: "true/false",
+    correct: "True/false",
   },
 
   {
@@ -95,7 +95,7 @@ var quizQuestions = [
     three: "remote/local",
     correct: true,
     four: "local/remote",
-    correct: "True",
+    correct: "remote/local",
   },
 
   {
