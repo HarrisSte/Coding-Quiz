@@ -1,4 +1,4 @@
-//Variables
+//Variables for entire application
 var header = document.querySelector(".mainHeader");
 var score = document.querySelector("score");
 var submitButton = document.getElementById("submitButton");
@@ -31,7 +31,6 @@ var timer = document.getElementById("timer");
 //Starting page
 
 //Multiple-choice questions - 6 total
-//Try to show correct answers
 var quizQuestions = [
   {
     questionsHeader: "What is an example of a Boolean response?",
@@ -208,8 +207,10 @@ function checkAnswer(event) {
   showQuestions();
 }
 
+//Move to end of the quiz: final/high-scores
 function showScore () {
-  
+  quizQuestions.style.display = "none";
+  finalScore.style.display = "block";
 }
 
 var startScore = 0;
