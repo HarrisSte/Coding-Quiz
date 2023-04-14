@@ -1,5 +1,5 @@
 //Variables
-var header = document.querySelector(".main-header");
+var header = document.querySelector(".mainHeader");
 var score = document.querySelector("score");
 var submitButton = document.getElementById("submitButton");
 
@@ -19,6 +19,14 @@ var questionButton = document.querySelector(".questionButton");
 
 var challengePage = document.getElementById("challengePage");
 var finalScore = document.getElementById("finalScorePage");
+var highScoreButtons = document.getElementById("highScoreButtons");
+
+var initialButton = document.getElementById("initialButton");
+var initials = document.getElementById("initials");
+var initialInput = document.getElementById("initialInput");
+
+var allDone = document.getElementById("allDone");
+var allDoneButtons = document.getElementById("form-inline");
 
 var timer = document.getElementById("timer");
 
@@ -27,37 +35,37 @@ var timer = document.getElementById("timer");
 //Multiple-choice questions - 6 total
 var quizQuestions = [
   {
-    questionHeader: "What is an example of a Boolean response?",
+    questionsHeader: "What is an example of a Boolean response?",
     choices: ["banana", "true/false", "London", "Random"],
     answer: 2,
   },
 
   {
-    questionHeader: "What is an example of a fruit ?",
+    questionsHeader: "What is an example of a fruit ?",
     choices: ["banana", "true/false", "London", "Random"],
     answer: 1,
   },
 
   {
-    questionHeader: "What is an example of a fruit ?",
+    questionsHeader: "What is an example of a fruit ?",
     choices: ["banana", "true/false", "London", "Random"],
     answer: 1,
   },
 
   {
-    questionHeader: "What is an example of a fruit ?",
+    questionsHeader: "What is an example of a fruit ?",
     choices: ["banana", "true/false", "London", "Random"],
     answer: 1,
   },
 
   {
-    questionHeader: "What is an example of a fruit ?",
+    questionsHeader: "What is an example of a fruit ?",
     choices: ["banana", "true/false", "London", "Random"],
     answer: 1,
   },
 
   {
-    questionHeader: "What is an example of a fruit ?",
+    questionsHeader: "What is an example of a fruit ?",
     choices: ["banana", "true/false", "London", "Random"],
     answer: 1,
   },
@@ -66,10 +74,39 @@ var quizQuestions = [
 var startScore = 0;
 var questionIndex = 0;
 
+//Initial page when first starting - set attributes
+function codeQuiz() {
+  challengePage.style.display = "block";
+  header.style.display = "block";
+  quizQuestions.style.display = "none";
+  finalScore.style.display = "none";
+
+  var startScore = 0;
+  timer.textContent = "Time: " + startScore;
+}
+
+//starting the quiz to bring you to questions
+function startQuiz() {
+  challengePage.style.display = "none";
+  quizQuestions.style.display = "block";
+
+  secondsLeft = 90;
+
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft;
+    if (secondsLeft === 0 || quizQuestions.length === questionIndex) {
+      clearInterval(timerInterval);
+      finalScore();
+    }
+  }, 1000);
+}
+
 //Try to get questions to show up
 function showQuestions() {
   var q = quizQuestions[questionIndex];
-  questionsHeader.innerHTML = q = quizQuestions;
+
+  questionsHeader.innerHTML = q.questionHeader;
   choice1.innerHTML = q.one;
   choice1.setAttribute("data-answer", q.one);
 }
@@ -108,32 +145,7 @@ choice1.addEventListener("click", function (event) {
 var startScore = 0;
 var questionIndex = 0;
 
-//Initial page when first starting - set attributes
-function codeQuiz() {
-  challengePage.style.display = "block";
-  header.style.display = "block";
-  quizQuestions.style.display = "none";
-  finalScore.style.display = "none";
 
-  var startScore = 0;
-  timer.textContent = "Time: " + startScore;
-}
-//starting the quiz to bring you to questions
-function startQuiz() {
-  challengePage.style.display = "none";
-  quizQuestions.style.display = "none";
-
-  secondsLeft = 90;
-
-  var timerInterval = setInterval(function () {
-    secondsLeft--;
-    timer.textContent = "Time: " + secondsLeft;
-    if (secondsLeft === 0 || quizQuestions.length === questionIndex) {
-      clearInterval(timerInterval);
-      showFinalScore();
-    }
-  }, 1000);
-}
 
 
 //addeventListers for answers when clicked
