@@ -123,11 +123,6 @@ function showQuestions() {
   choice4.innerHTML = q.four;
   choice4.setAttribute("data-answer", q.four);
   questionsHeader.innerHTML = q.questionsHeader;
-  choice5.innerHTML = q.five;
-  choice5.setAttribute("data-answer", q.five);
-  questionsHeader.innerHTML = q.questionsHeader;
-  choice6.innerHTML = q.six;
-  choice6.setAttribute("data-answer", q.six);
 }
 
 //EL when user clicks
@@ -135,6 +130,8 @@ showQuestions();
 choice1.addEventListener("click", function (event) {
   checkAnswer(event);
 });
+
+
 
 //Countdown timer
 // const timeH = document.querySelector("h1");
