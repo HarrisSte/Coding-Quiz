@@ -45,5 +45,20 @@ function endTime() {
 //Starting page
 
 //Multiple-choice questions - 6 total
+var quizQuestions = 
+[
+    {
+        question: "What is an example of a Boolean response?",
+        choices: ["banana","true/false","London","Random"],
+        answer: 2
+    },
+
+    {
+        question: "What is an example of a fruit ?",
+        choices: ["banana","true/false","London","Random"],
+        answer: 1
+    }
+]
+console.log(quizQuestions)
 
 //addeventListers for answers when clicked
