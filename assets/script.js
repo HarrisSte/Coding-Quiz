@@ -38,3 +38,5 @@ function endTime() {
 }
 
 //Starting page
+
+//Multiple-choice questions - 6 total
