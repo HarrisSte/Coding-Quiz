@@ -3,7 +3,7 @@ var header = document.querySelector(".mainHeader");
 var score = document.querySelector("score");
 var submitButton = document.getElementById("submitButton");
 
-var questionsHeader = document.getElementById("questionHeader");
+var questionsHeader = document.getElementById("questionsHeader");
 var choice1 = document.getElementById("one");
 var choice2 = document.getElementById("two");
 var choice3 = document.getElementById("three");
