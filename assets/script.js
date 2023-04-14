@@ -20,7 +20,6 @@ var questionButton = document.querySelector(".questionButton");
 var challengePage = document.getElementById("challengePage");
 var finalScore = document.getElementById("finalScore");
 
-
 //Starting page
 
 //Multiple-choice questions - 6 total
@@ -65,7 +64,7 @@ var quizQuestions = [
 //Try to get questions to show up
 function showQuestions() {
   var q = quizQuestions[questionIndex];
-  questionsHeader.innerHTML = q=quizQuestions;
+  questionsHeader.innerHTML = q = quizQuestions;
   choice1.innerHTML = q.one;
   choice1.setAttribute("data-answer", q.one);
 }
@@ -105,10 +104,9 @@ var startScore = 0;
 var questionIndex = 0;
 
 //starting the quiz to bring you to questions
-function startQuiz () {
-    challengePage.style.display = "none";
-    quizQuestions.style.display = "none";
-
+function startQuiz() {
+  challengePage.style.display = "none";
+  quizQuestions.style.display = "none";
 }
 
 //Initial page when first starting - set attributes
