@@ -62,6 +62,7 @@ var quizQuestions = [
 var startScore = 0;
 var questionIndex = 0;
 
+//starting the quiz to bring you to questions
 function startQuiz () {
     challengePage.style.display = "none";
     quizQuestions.style.display = "none";
