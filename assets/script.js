@@ -35,57 +35,80 @@ var timer = document.getElementById("timer");
 var quizQuestions = [
   {
     questionsHeader: "What is an example of a Boolean response?",
-    one: "banana", correct: false,
-    two: "true/false", correct: true,
-    three: "London", correct: false,
-    four: "Paris", correct: false,
-    correct: "true/false"
+    one: "A sequence of text",
+    correct: false,
+    two: "True/false",
+    correct: true,
+    three: "Use of numbers",
+    correct: false,
+    four: "An array with quotes",
+    correct: false,
+    correct: "true/false",
   },
 
   {
     questionsHeader: "What is the purpose of HTML?",
-    one: "Setting the structure of the application", correct: true,
-    two: "It adds all the stlying and colors to the application", correct: false,
-    three: "Nothing, it really just is a placeholder", correct: false,
-    four: "It allows us to traverse the DOM", correct: false,
-    correct: "Setting the structure of the application"
+    one: "Setting the structure of the application",
+    correct: true,
+    two: "It adds all the stlying and colors to the application",
+    correct: false,
+    three: "Nothing, it really just is a placeholder",
+    correct: false,
+    four: "It allows us to traverse the DOM",
+    correct: false,
+    correct: "Setting the structure of the application",
   },
-
 
   {
     questionsHeader: "Where do you put your script.js file?",
-    one: "At the beginning of the index.html file", correct: false,
-    two: "In the middle of the style.css file", correct: false,
-    three: "At the end of the index.html file", correct: true,
-    four: "Nowhere, it connects automatically", correct: false,
-    correct: "At the end of the index.html file"
+    one: "At the beginning of the index.html file",
+    correct: false,
+    two: "In the middle of the style.css file",
+    correct: false,
+    three: "At the end of the index.html file",
+    correct: true,
+    four: "Nowhere, it connects automatically",
+    correct: false,
+    correct: "At the end of the index.html file",
   },
 
   {
     questionsHeader: "JavaScript allows us to...?",
-    one: "Setting the structure of the application", correct: true,
-    two: "Add functionality to our web application", correct: true,
-    three: "Move through the styling of our web application", correct: false,
-    four: "All of the above", correct: false,
-    correct: "Add functionality to our web application"
+    one: "Setting the structure of the application",
+    correct: true,
+    two: "Add functionality to our web application",
+    correct: true,
+    three: "Move through the styling of our web application",
+    correct: false,
+    four: "All of the above",
+    correct: false,
+    correct: "Add functionality to our web application",
   },
 
   {
-    questionsHeader: "GitLab is a _______ repo where we can store our _______ code",
-    one: "SSD/HDD", correct: false,
-    two: "PC/cloud", correct: false,
-    three: "remote/local", correct: true,
+    questionsHeader:
+      "GitLab is a _______ repo where we can store our _______ code",
+    one: "SSD/HDD",
+    correct: false,
+    two: "PC/cloud",
+    correct: false,
+    three: "remote/local",
+    correct: true,
     four: "local/remote",
-    correct: "True"
+    correct: "True",
   },
 
   {
     questionsHeader: "Functions within JavaScript are...",
-    one: "types of methods", correct: false,
-    two: "a set of instructions on what we want the code to do", correct: true,
-    three: "what allow us to .stringify", correct: false,
-    four: "There is no such thing as functions in JavaScript", correct: false,
-    correct: "a set of instructions on what we want the code to do"
+    one: "types of methods",
+    correct: false,
+    two: "a set of instructions on what we want the code to do",
+    correct: true,
+    three: "what allow us to .stringify",
+    correct: false,
+    four: "There is no such thing as functions in JavaScript",
+    correct: false,
+    correct: "a set of instructions on what we want the code to do",
   },
 ];
 
