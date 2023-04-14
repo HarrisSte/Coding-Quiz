@@ -12,6 +12,8 @@ var choice5 = document.getElementById("five");
 var choice6 = document.getElementById("six");
 var answerResponse = document.getElementById("answerResponse");
 
+var finalScore = document.getElementById("finalScore");
+
 //Countdown timer
 const timeH = document.querySelector("h1");
 let timeSecond = 90;
@@ -40,3 +42,5 @@ function endTime() {
 //Starting page
 
 //Multiple-choice questions - 6 total
+
+//addeventListers for answers when clicked
