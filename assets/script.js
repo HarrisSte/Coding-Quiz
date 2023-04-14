@@ -8,8 +8,8 @@ var choice1 = document.getElementById("one");
 var choice2 = document.getElementById("two");
 var choice3 = document.getElementById("three");
 var choice4 = document.getElementById("four");
-var choice5 = document.getElementById("five");
-var choice6 = document.getElementById("six");
+// var choice5 = document.getElementById("five");
+// var choice6 = document.getElementById("six");
 var correct = document.getElementById("correct");
 var answerResponse = document.getElementById("answerResponse");
 
@@ -77,7 +77,7 @@ var questionIndex = 0;
 //Initial page when first starting - set attributes
 function codeQuiz() {
   challengePage.style.display = "block";
-  header.style.display = "block";
+  mainHeader.style.display = "block";
   quizQuestions.style.display = "none";
   finalScore.style.display = "none";
 
@@ -142,6 +142,30 @@ choice4.addEventListener("click", function (event) {
 });
 
 //Try to fix check answer
+function checkAnswer(event) {
+  event.preventDefault();
+
+  var answer = event.currentTarget.dataset.answer;
+  var correctAnswer = null;
+
+  if (quizQuestions[questionIndex].correct === answer) {
+    correctAnswer = answer;
+  }
+  if (answer === correctAnswer) {
+    answerResponse.textContent = "Correct!";
+  } else {
+    answerResponse.textContent = "Incorrect!";
+    secondsLeft -= 10;
+    if (secondsLeft < 0) {
+      secondsLeft = 0;
+    }
+  }
+  if (quizQuestions.length === questionIndex + 1) {
+    showFinalScore();
+  }
+  questionIndex++;
+  showQuestions();
+}
 
 //Countdown timer
 // const timeH = document.querySelector("h1");
