@@ -20,6 +20,8 @@ var questionButton = document.querySelector(".questionButton");
 var challengePage = document.getElementById("challengePage");
 var finalScore = document.getElementById("finalScore");
 
+var timer = document.getElementById("timer");
+
 //Starting page
 
 //Multiple-choice questions - 6 total
@@ -76,29 +78,29 @@ choice1.addEventListener("click", function (event) {
 });
 
 //Countdown timer
-const timeH = document.querySelector("h1");
-let timeSecond = 90;
+// const timeH = document.querySelector("h1");
+// let timeSecond = 90;
 
-displayTime(timeSecond);
+// displayTime(timeSecond);
 
-const countDown = setInterval(() => {
-  timeSecond--;
-  displayTime(timeSecond);
-  if (timeSecond <= 0 || timeSecond < 1) {
-    endTime();
-    clearInterval(countDown);
-  }
-}, 1000);
+// const countDown = setInterval(() => {
+//   timeSecond--;
+//   displayTime(timeSecond);
+//   if (timeSecond <= 0 || timeSecond < 1) {
+//     endTime();
+//     clearInterval(countDown);
+//   }
+// }, 1000);
 
-function displayTime(second) {
-  const min = Math.floor(second / 60);
-  const sec = Math.floor(second % 60);
-  timeH.innerHTML = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
-}
+// function displayTime(second) {
+//   const min = Math.floor(second / 60);
+//   const sec = Math.floor(second % 60);
+//   timeH.innerHTML = `${min < 10 ? "0" : ""}${min}:${sec < 10 ? "0" : ""}${sec}`;
+// }
 
-function endTime() {
-  timeH.innerHTML = "Out of time!";
-}
+// function endTime() {
+//   timeH.innerHTML = "Out of time!";
+// }
 
 var startScore = 0;
 var questionIndex = 0;
@@ -107,6 +109,17 @@ var questionIndex = 0;
 function startQuiz() {
   challengePage.style.display = "none";
   quizQuestions.style.display = "none";
+
+  secondsLeft = 90;
+
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft;
+    if (secondsLeft === 0 || quizQuestions.length === questionIndex) {
+      clearInterval(timerInterval);
+      showFinalScore();
+    }
+  }, 1000);
 }
 
 //Initial page when first starting - set attributes
