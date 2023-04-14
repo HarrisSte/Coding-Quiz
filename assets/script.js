@@ -1,8 +1,3 @@
-// var answerChoices = document.querySelector("#answerChoices");
-// var startButton = document.querySelector("#startButton");
-// var timer = document.querySelector("#timer");
-// var time_limit = 90;
-
 //Variables
 var header = document.querySelector(".header");
 var score = document.querySelector("score");
@@ -15,6 +10,7 @@ var choice3 = document.getElementById("three");
 var choice4 = document.getElementById("four");
 var choice5 = document.getElementById("five");
 var choice6 = document.getElementById("six");
+var answerResponse = document.getElementById("answerResponse");
 
 //Countdown timer 
 const timeH = document.querySelector('h1');
