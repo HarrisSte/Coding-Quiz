@@ -16,7 +16,7 @@ var quizQuestions = document.getElementById("quizQuestions");
 var questionButton = document.querySelector(".questionButton");
 
 var challengePage = document.getElementById("challengePage");
-var finalScore = document.getElementById("finalScorePage");
+var finalScorePage = document.getElementById("finalScorePage");
 var highScoreButtons = document.getElementById("highScoreButtons");
 
 var initialButton = document.getElementById("initialButton");
@@ -211,6 +211,9 @@ function checkAnswer(event) {
 function showScore () {
   quizQuestions.style.display = "none";
   finalScore.style.display = "block";
+  finalScorePage.style.display = "block";
+
+  finalScore.textContent = "Your score is " + secondsLeft;
 }
 
 var startScore = 0;
