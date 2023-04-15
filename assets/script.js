@@ -1,6 +1,6 @@
 //Variables for entire application
 var header = document.querySelector(".mainHeader");
-var score = document.querySelector("score");
+var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
 
 var questionsHeader = document.getElementById("questionsHeader");
@@ -27,6 +27,7 @@ var quizComplete = document.getElementById("quizComplete");
 var allDoneButtons = document.getElementById("form-inline");
 
 var timer = document.getElementById("timer");
+var secondsLeft = 90;
 
 //Starting page
 
@@ -248,6 +249,7 @@ submitButton.addEventListener("click", function () {
   startQuiz();
 });
 
+
 score.addEventListener("click", function () {
   showHighScores();
 });
@@ -256,7 +258,7 @@ initialButton.addEventListener("click", function () {
   showHighScores();
 });
 
-clearHighScore.addEventListener("click", function () {
+resetHighScore.addEventListener("click", function () {
   localStorage.clear();
 });
 
