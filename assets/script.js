@@ -8,7 +8,7 @@ var choice1 = document.getElementById("one");
 var choice2 = document.getElementById("two");
 var choice3 = document.getElementById("three");
 var choice4 = document.getElementById("four");
-var correct = document.getElementById("answer");
+var correct = document.getElementById("correct");
 var answerResponse = document.getElementById("answerResponse");
 
 var finalScore = document.getElementById("finalScore");
@@ -23,7 +23,7 @@ var initialButton = document.getElementById("initialButton");
 var initials = document.getElementById("initials");
 var initialInput = document.getElementById("initialInput");
 
-var allDone = document.getElementById("quizComplete");
+var quizComplete = document.getElementById("quizComplete");
 var allDoneButtons = document.getElementById("form-inline");
 
 var timer = document.getElementById("timer");
@@ -210,11 +210,15 @@ function checkAnswer(event) {
 //Move to end of the quiz: final/high-scores
 function showScore () {
   quizQuestions.style.display = "none";
-  finalScore.style.display = "block";
+  highScoreButtons.style.display = "none";
   finalScorePage.style.display = "block";
-  
+  finalScore.style.display = "block";
+  initials.style.display = "block";
+  initialInput.style.display = "block";
 
   finalScore.textContent = "Your score is " + secondsLeft;
+  initialButton.textContent = "Submit";
+  initials.textContent = "Enter your initials: ";
 }
 
 var startScore = 0;
