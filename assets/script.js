@@ -220,12 +220,13 @@ function showHighScores(initials, score) {
   highScorePage.style.display = "block";
 
   var highScoreArray = JSON.parse(localStorage.getItem("highScore")) || [];
+  var currentScore = {
+    initials: initials,
+    score: score
+  };
 
-  var localStorageArray = { score: secondsLeft, intials: getInitials };
-  highScoreArray.push(localStorageArray);
+  highScoreArray.push(currentScore);
   localStorage.setItem("highScore", JSON.stringify(highScoreArray));
-
-  var highScore = (getInitials = ": " + secondsLeft);
 }
 
 //addeventListers for answers when clicked
