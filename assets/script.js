@@ -221,8 +221,23 @@ function showScore () {
   initials.textContent = "Enter your initials: ";
 }
 
-var startScore = 0;
-var questionIndex = 0;
+var highScoreArray = [];
+
+function showHighScores() {
+  header.style.display = "none";
+  quizComplete.style.display = "none";
+  finalScore.style.display = "none";
+  initials.style.display = "none";
+  initialButton.style.display = "none";
+  initialInput.style.display = "none";
+  highScoreButtons.style.display = "block";
+}
+
+var getInitials = document.getElementById("initialInput").value;
+
+var highScoreArray = JSON.parse(localStorage.getItem("highScore")) || [];
+
+
 
 //addeventListers for answers when clicked
 submitButton.addEventListener("click", function () {
