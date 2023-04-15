@@ -208,7 +208,7 @@ function checkAnswer(event) {
 }
 
 //Move to end of the quiz: final/high-scores
-function showScore () {
+function showScore() {
   quizQuestions.style.display = "none";
   highScoreButtons.style.display = "none";
   finalScorePage.style.display = "block";
@@ -234,12 +234,37 @@ function showHighScores() {
 }
 
 var getInitials = document.getElementById("initialInput").value;
-
 var highScoreArray = JSON.parse(localStorage.getItem("highScore")) || [];
 
+var localStorageArray = { score: secondsLeft, intials: getInitials };
+highScoreArray.push(localStorageArray);
+localStorage.setItem("highScore", JSON.stringify(highScoreArray));
+
+var highScore = getInitials = ": " + secondsLeft;
 
 
 //addeventListers for answers when clicked
 submitButton.addEventListener("click", function () {
   startQuiz();
 });
+
+score.addEventListener("click", function () {
+  showHighScores();
+});
+
+initialButton.addEventListener("click", function () {
+  showHighScores();
+});
+
+clearHighScore.addEventListener("click", function () {
+  localStorage.clear();
+});
+
+goBack.addEventListener("click", function () {
+  $("#highScoreList").empty();
+  $("#initialInput").val(""); 
+  resetVariables();
+  codeQuiz();
+});
+
+codeQuiz ();
