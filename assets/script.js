@@ -17,6 +17,7 @@ var questionButton = document.querySelector(".questionButton");
 var challengePage = document.getElementById("challengePage");
 var finalScorePage = document.getElementById("finalScorePage");
 var highScorePage = document.getElementById("highScorePage");
+var highScoreList = document.getElementById("highScoreList");
 
 var initialButton = document.getElementById("initialButton");
 var initialInput = document.getElementById("initialInput");
@@ -222,12 +223,19 @@ function showHighScores(initials, score) {
   var highScoreArray = JSON.parse(localStorage.getItem("highScore")) || [];
   var currentScore = {
     initials: initials,
-    score: score
+    score: score,
   };
 
   highScoreArray.push(currentScore);
   localStorage.setItem("highScore", JSON.stringify(highScoreArray));
+
+ for (var index = 0; index < highScoreArray.length; index++) {
+  var userScore = highScoreArray[index];
+  
+ }
 }
+
+
 
 //addeventListers for answers when clicked
 startQuizButton.addEventListener("click", function () {
