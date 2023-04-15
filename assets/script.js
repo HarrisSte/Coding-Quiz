@@ -214,8 +214,6 @@ function showScore() {
   finalScorePage.style.display = "block";
 }
 
-var highScoreArray = [];
-
 function showHighScores(initials, score) {
   finalScorePage.style.display = "none";
   highScorePage.style.display = "block";
@@ -229,13 +227,15 @@ function showHighScores(initials, score) {
   highScoreArray.push(currentScore);
   localStorage.setItem("highScore", JSON.stringify(highScoreArray));
 
- for (var index = 0; index < highScoreArray.length; index++) {
-  var userScore = highScoreArray[index];
-  
- }
+  for (var index = 0; index < highScoreArray.length; index++) {
+    var userScore = highScoreArray[index];
+
+    var userScoreElement = document.createElement("li");
+    userScoreElement.textContent =
+      "Initials " + userScore.initials + " : Score " + userScore.score;
+    highScoreList.appendChild(userScoreElement);
+  }
 }
-
-
 
 //addeventListers for answers when clicked
 startQuizButton.addEventListener("click", function () {
@@ -253,10 +253,8 @@ resetHighScore.addEventListener("click", function () {
 });
 
 goBack.addEventListener("click", function () {
-  $("#highScoreList").empty();
-  $("#initialInput").val("");
-  resetVariables();
   codeQuiz();
+  
 });
 
 codeQuiz();
