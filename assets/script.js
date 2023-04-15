@@ -1,7 +1,6 @@
 //Variables for entire application
-var mainHeader = document.querySelector(".mainHeader");
-var score = document.getElementById("score");
-var submitButton = document.getElementById("submitButton");
+var viewHighScores = document.getElementById("viewHighScores");
+var startQuizButton = document.getElementById("startQuizButton");
 
 var questionsHeader = document.getElementById("questionsHeader");
 var choice1 = document.getElementById("one");
@@ -12,15 +11,14 @@ var correct = document.getElementById("correct");
 var answerResponse = document.getElementById("answerResponse");
 
 var finalScore = document.getElementById("finalScore");
-var questionsPage = document.getElementById("quizQuestions");
+var questionsPage = document.getElementById("questionsPage");
 var questionButton = document.querySelector(".questionButton");
 
 var challengePage = document.getElementById("challengePage");
 var finalScorePage = document.getElementById("finalScorePage");
-var highScoreButtons = document.getElementById("highScoreButtons");
+var highScorePage = document.getElementById("highScorePage");
 
 var initialButton = document.getElementById("initialButton");
-var initials = document.getElementById("initials");
 var initialInput = document.getElementById("initialInput");
 
 var quizComplete = document.getElementById("quizComplete");
@@ -29,8 +27,6 @@ var allDoneButtons = document.getElementById("form-inline");
 var timer = document.getElementById("timer");
 var secondsLeft = 90;
 var timerInterval;
-
-//Starting page
 
 //Multiple-choice questions - 6 total
 var quizQuestions = [
@@ -118,12 +114,11 @@ var questionIndex = 0;
 //Initial page when first starting - set attributes
 function codeQuiz() {
   challengePage.style.display = "block";
-  mainHeader.style.display = "block";
   questionsPage.style.display = "none";
-  finalScore.style.display = "none";
+  finalScorePage.style.display = "none";
+  highScorePage.style.display = "none";
 
-  var startScore = 0;
-  timer.textContent = "Time: " + startScore;
+  timer.textContent = "Time: " + secondsLeft;
 }
 
 function resetVariables() {
@@ -213,47 +208,35 @@ function checkAnswer(event) {
 //Move to end of the quiz: final/high-scores
 function showScore() {
   questionsPage.style.display = "none";
-  highScoreButtons.style.display = "none";
-  finalScorePage.style.display = "block";
-  finalScore.style.display = "block";
-  initials.style.display = "block";
-  initialInput.style.display = "block";
 
   finalScore.textContent = "Your score is " + secondsLeft;
+  finalScorePage.style.display = "block";
 }
 
 var highScoreArray = [];
 
-function showHighScores() {
-  header.style.display = "none";
-  quizComplete.style.display = "none";
-  finalScore.style.display = "none";
-  initials.style.display = "none";
-  initialButton.style.display = "none";
-  initialInput.style.display = "none";
-  highScoreButtons.style.display = "block";
+function showHighScores(initials, score) {
+  finalScorePage.style.display = "none";
+  highScorePage.style.display = "block";
+
+  var highScoreArray = JSON.parse(localStorage.getItem("highScore")) || [];
+
+  var localStorageArray = { score: secondsLeft, intials: getInitials };
+  highScoreArray.push(localStorageArray);
+  localStorage.setItem("highScore", JSON.stringify(highScoreArray));
+
+  var highScore = (getInitials = ": " + secondsLeft);
 }
 
-var getInitials = document.getElementById("initialInput").value;
-var highScoreArray = JSON.parse(localStorage.getItem("highScore")) || [];
-
-var localStorageArray = { score: secondsLeft, intials: getInitials };
-highScoreArray.push(localStorageArray);
-localStorage.setItem("highScore", JSON.stringify(highScoreArray));
-
-var highScore = (getInitials = ": " + secondsLeft);
-
 //addeventListers for answers when clicked
-submitButton.addEventListener("click", function () {
+startQuizButton.addEventListener("click", function () {
   startQuiz();
 });
 
-score.addEventListener("click", function () {
-  showHighScores();
-});
-
 initialButton.addEventListener("click", function () {
-  showHighScores();
+  var initials = initialInput.value;
+  var score = secondsLeft;
+  showHighScores(initials, score);
 });
 
 resetHighScore.addEventListener("click", function () {
