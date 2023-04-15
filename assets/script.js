@@ -1,5 +1,5 @@
 //Variables for entire application
-var header = document.querySelector(".mainHeader");
+var mainHeader = document.querySelector(".mainHeader");
 var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
 
@@ -12,7 +12,7 @@ var correct = document.getElementById("correct");
 var answerResponse = document.getElementById("answerResponse");
 
 var finalScore = document.getElementById("finalScore");
-var quizQuestions = document.getElementById("quizQuestions");
+var questionsPage = document.getElementById("quizQuestions");
 var questionButton = document.querySelector(".questionButton");
 
 var challengePage = document.getElementById("challengePage");
@@ -28,13 +28,14 @@ var allDoneButtons = document.getElementById("form-inline");
 
 var timer = document.getElementById("timer");
 var secondsLeft = 90;
+var timerInterval;
 
 //Starting page
 
 //Multiple-choice questions - 6 total
 var quizQuestions = [
   {
-    questionsHeader: "What is an example of a Boolean response?",
+    question: "What is an example of a Boolean response?",
     one: "A sequence of text",
     correct: false,
     two: "True/false",
@@ -47,7 +48,7 @@ var quizQuestions = [
   },
 
   {
-    questionsHeader: "What is the purpose of HTML?",
+    question: "What is the purpose of HTML?",
     one: "Setting the structure of the application",
     correct: true,
     two: "It adds all the stlying and colors to the application",
@@ -60,7 +61,7 @@ var quizQuestions = [
   },
 
   {
-    questionsHeader: "Where do you put your script.js file?",
+    question: "Where do you put your script.js file?",
     one: "At the beginning of the index.html file",
     correct: false,
     two: "In the middle of the style.css file",
@@ -73,7 +74,7 @@ var quizQuestions = [
   },
 
   {
-    questionsHeader: "JavaScript allows us to...?",
+    question: "JavaScript allows us to...?",
     one: "Setting the structure of the application",
     correct: true,
     two: "Add functionality to our web application",
@@ -86,8 +87,7 @@ var quizQuestions = [
   },
 
   {
-    questionsHeader:
-      "GitLab is a _______ repo where we can store our _______ code",
+    question: "GitLab is a _______ repo where we can store our _______ code",
     one: "SSD/HDD",
     correct: false,
     two: "PC/cloud",
@@ -99,7 +99,7 @@ var quizQuestions = [
   },
 
   {
-    questionsHeader: "Functions within JavaScript are...",
+    question: "Functions within JavaScript are...",
     one: "types of methods",
     correct: false,
     two: "a set of instructions on what we want the code to do",
@@ -119,7 +119,7 @@ var questionIndex = 0;
 function codeQuiz() {
   challengePage.style.display = "block";
   mainHeader.style.display = "block";
-  quizQuestions.style.display = "none";
+  questionsPage.style.display = "none";
   finalScore.style.display = "none";
 
   var startScore = 0;
@@ -134,16 +134,16 @@ function resetVariables() {
 //starting the quiz to bring you to questions
 function startQuiz() {
   challengePage.style.display = "none";
-  quizQuestions.style.display = "block";
+  questionsPage.style.display = "block";
 
   secondsLeft = 90;
 
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timer.textContent = "Time: " + secondsLeft;
-    if (secondsLeft === 0 || quizQuestions.length === questionIndex) {
+    if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      finalScore();
+      showScore();
     }
   }, 1000);
 }
@@ -152,19 +152,19 @@ function startQuiz() {
 function showQuestions() {
   var q = quizQuestions[questionIndex];
 
-  questionsHeader.innerHTML = q.questionsHeader;
+  questionsHeader.innerHTML = q.question;
+
   choice1.innerHTML = q.one;
   choice1.setAttribute("data-answer", q.one);
-  questionsHeader.innerHTML = q.questionsHeader;
+
   choice2.innerHTML = q.two;
   choice2.setAttribute("data-answer", q.two);
-  questionsHeader.innerHTML = q.questionsHeader;
+
   choice3.innerHTML = q.three;
   choice3.setAttribute("data-answer", q.three);
-  questionsHeader.innerHTML = q.questionsHeader;
+
   choice4.innerHTML = q.four;
   choice4.setAttribute("data-answer", q.four);
-  questionsHeader.innerHTML = q.questionsHeader;
 }
 
 //EL when user clicks
@@ -202,15 +202,17 @@ function checkAnswer(event) {
     }
   }
   if (quizQuestions.length === questionIndex + 1) {
+    clearInterval(timerInterval);
     showScore();
+  } else {
+    questionIndex++;
+    showQuestions();
   }
-  questionIndex++;
-  showQuestions();
 }
 
 //Move to end of the quiz: final/high-scores
 function showScore() {
-  quizQuestions.style.display = "none";
+  questionsPage.style.display = "none";
   highScoreButtons.style.display = "none";
   finalScorePage.style.display = "block";
   finalScore.style.display = "block";
@@ -218,8 +220,6 @@ function showScore() {
   initialInput.style.display = "block";
 
   finalScore.textContent = "Your score is " + secondsLeft;
-  initialButton.textContent = "Submit";
-  initials.textContent = "Enter your initials: ";
 }
 
 var highScoreArray = [];
@@ -241,14 +241,12 @@ var localStorageArray = { score: secondsLeft, intials: getInitials };
 highScoreArray.push(localStorageArray);
 localStorage.setItem("highScore", JSON.stringify(highScoreArray));
 
-var highScore = getInitials = ": " + secondsLeft;
-
+var highScore = (getInitials = ": " + secondsLeft);
 
 //addeventListers for answers when clicked
 submitButton.addEventListener("click", function () {
   startQuiz();
 });
-
 
 score.addEventListener("click", function () {
   showHighScores();
@@ -264,9 +262,9 @@ resetHighScore.addEventListener("click", function () {
 
 goBack.addEventListener("click", function () {
   $("#highScoreList").empty();
-  $("#initialInput").val(""); 
+  $("#initialInput").val("");
   resetVariables();
   codeQuiz();
 });
 
-codeQuiz ();
+codeQuiz();
