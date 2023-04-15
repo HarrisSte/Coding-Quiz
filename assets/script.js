@@ -22,95 +22,62 @@ var highScoreList = document.getElementById("highScoreList");
 var initialButton = document.getElementById("initialButton");
 var initialInput = document.getElementById("initialInput");
 
-var quizComplete = document.getElementById("quizComplete");
-var allDoneButtons = document.getElementById("form-inline");
-
 var timer = document.getElementById("timer");
 var secondsLeft = 90;
 var timerInterval;
+var questionIndex = 0;
 
 //Multiple-choice questions - 6 total
 var quizQuestions = [
   {
     question: "What is an example of a Boolean response?",
     one: "A sequence of text",
-    correct: false,
     two: "True/false",
-    correct: true,
     three: "use of numbers",
-    correct: false,
     four: "An array with quotes",
-    correct: false,
     correct: "True/false",
   },
-
   {
     question: "What is the purpose of HTML?",
     one: "Setting the structure of the application",
-    correct: true,
     two: "It adds all the stlying and colors to the application",
-    correct: false,
     three: "Nothing, it really just is a placeholder",
-    correct: false,
     four: "It allows us to traverse the DOM",
-    correct: false,
     correct: "Setting the structure of the application",
   },
-
   {
     question: "Where do you put your script.js file?",
     one: "At the beginning of the index.html file",
-    correct: false,
     two: "In the middle of the style.css file",
-    correct: false,
     three: "At the end of the index.html file",
-    correct: true,
     four: "Nowhere, it connects automatically",
-    correct: false,
     correct: "At the end of the index.html file",
   },
-
   {
     question: "JavaScript allows us to...?",
     one: "Setting the structure of the application",
-    correct: true,
     two: "Add functionality to our web application",
-    correct: true,
     three: "Move through the styling of our web application",
-    correct: false,
     four: "All of the above",
-    correct: false,
     correct: "Add functionality to our web application",
   },
-
   {
     question: "GitLab is a _______ repo where we can store our _______ code",
     one: "SSD/HDD",
-    correct: false,
     two: "PC/cloud",
-    correct: false,
     three: "remote/local",
-    correct: true,
     four: "local/remote",
     correct: "remote/local",
   },
-
   {
     question: "Functions within JavaScript are...",
     one: "types of methods",
-    correct: false,
     two: "a set of instructions on what we want the code to do",
-    correct: true,
     three: "what allow us to .stringify",
-    correct: false,
     four: "There is no such thing as functions in JavaScript",
-    correct: false,
     correct: "a set of instructions on what we want the code to do",
   },
 ];
-
-var startScore = 0;
-var questionIndex = 0;
 
 //Initial page when first starting - set attributes
 function codeQuiz() {
@@ -123,8 +90,10 @@ function codeQuiz() {
 }
 
 function resetVariables() {
-  startScore = 0;
   questionIndex = 0;
+  secondsLeft = 90;
+  highScoreList.innerHTML = "";
+  initialInput.value = "";
 }
 
 //starting the quiz to bring you to questions
@@ -142,7 +111,23 @@ function startQuiz() {
       showScore();
     }
   }, 1000);
+
+  showQuestions();
 }
+
+//EL when user clicks
+choice1.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
+choice2.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
+choice3.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
+choice4.addEventListener("click", function (event) {
+  checkAnswer(event);
+});
 
 //Try to get questions to show up
 function showQuestions() {
@@ -162,21 +147,6 @@ function showQuestions() {
   choice4.innerHTML = q.four;
   choice4.setAttribute("data-answer", q.four);
 }
-
-//EL when user clicks
-showQuestions();
-choice1.addEventListener("click", function (event) {
-  checkAnswer(event);
-});
-choice2.addEventListener("click", function (event) {
-  checkAnswer(event);
-});
-choice3.addEventListener("click", function (event) {
-  checkAnswer(event);
-});
-choice4.addEventListener("click", function (event) {
-  checkAnswer(event);
-});
 
 //Try to fix check answer
 function checkAnswer(event) {
@@ -250,11 +220,12 @@ initialButton.addEventListener("click", function () {
 
 resetHighScore.addEventListener("click", function () {
   localStorage.clear();
+  highScoreList.innerHTML = "";
 });
 
 goBack.addEventListener("click", function () {
+  resetVariables();
   codeQuiz();
-  
 });
 
 codeQuiz();
