@@ -212,6 +212,7 @@ function showScore () {
   quizQuestions.style.display = "none";
   finalScore.style.display = "block";
   finalScorePage.style.display = "block";
+  
 
   finalScore.textContent = "Your score is " + secondsLeft;
 }
