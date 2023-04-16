@@ -79,7 +79,7 @@ var quizQuestions = [
   },
 ];
 
-//Initial page when first starting - set attributes
+//Initial page when first starting: hides/shows 'pages'
 function codeQuiz() {
   challengePage.style.display = "block";
   questionsPage.style.display = "none";
@@ -89,6 +89,7 @@ function codeQuiz() {
   timer.textContent = "Time: " + secondsLeft;
 }
 
+//Resets quiz to starting state
 function resetVariables() {
   questionIndex = 0;
   secondsLeft = 90;
@@ -96,7 +97,7 @@ function resetVariables() {
   initialInput.value = "";
 }
 
-//starting the quiz to bring you to questions
+//Starting the quiz to bring you to questions: instructions are hidden & timer begins to count down
 function startQuiz() {
   challengePage.style.display = "none";
   questionsPage.style.display = "block";
@@ -115,7 +116,7 @@ function startQuiz() {
   showQuestions();
 }
 
-//EL when user clicks
+//eventListeners to lister for when user clicks on an answer choice
 choice1.addEventListener("click", function (event) {
   checkAnswer(event);
 });
@@ -129,7 +130,7 @@ choice4.addEventListener("click", function (event) {
   checkAnswer(event);
 });
 
-//Try to get questions to show up
+//
 function showQuestions() {
   var q = quizQuestions[questionIndex];
 
@@ -148,7 +149,7 @@ function showQuestions() {
   choice4.setAttribute("data-answer", q.four);
 }
 
-//Try to fix check answer
+//For loop to check answer selection: if incorrect, will deduct 10 seconds from timer
 function checkAnswer(event) {
   event.preventDefault();
 
@@ -176,7 +177,7 @@ function checkAnswer(event) {
   }
 }
 
-//Move to end of the quiz: final/high-scores
+//Moves to end of quiz where score is shown, user enters initials, and highscores are displayed
 function showScore() {
   questionsPage.style.display = "none";
 
@@ -207,7 +208,7 @@ function showHighScores(initials, score) {
   }
 }
 
-//addeventListers for answers when clicked
+//eventListeners for entire application: startign quiz, initials, highscores, & go back btn
 startQuizButton.addEventListener("click", function () {
   startQuiz();
 });
@@ -228,4 +229,5 @@ goBack.addEventListener("click", function () {
   codeQuiz();
 });
 
+//Starts application at the beginning and quiz is reset
 codeQuiz();
