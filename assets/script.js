@@ -203,7 +203,7 @@ function showHighScores(initials, score) {
 
     var userScoreElement = document.createElement("li");
     userScoreElement.textContent =
-      "Initials " + userScore.initials + " : Score " + userScore.score;
+      "Initials: " + userScore.initials + "    ||     Score: " + userScore.score;
     highScoreList.appendChild(userScoreElement);
   }
 }

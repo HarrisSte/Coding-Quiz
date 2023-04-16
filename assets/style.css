@@ -1,11 +1,9 @@
 /* Main styling of page */
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #D4E3C4;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .body {
@@ -29,7 +27,7 @@ p {
 }
 
 button {
-  text-align: center !important;
+  text-align: center;
   background-color: lightgreen;
   border-radius: 1rem;
   color: darkgreen;
@@ -81,10 +79,8 @@ li {
   padding-right: 15%;
 }
 
-#initialInput {
-  margin-left: 15%;
+.form-inline {
   align-items: center;
   text-align: center;
-  padding-left: 15%;
-  padding-right: 15%;
+
 }
