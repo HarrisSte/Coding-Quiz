@@ -1,4 +1,4 @@
-/* Main styling */
+/* Main styling of page */
 
 * {
   padding: 0;
@@ -15,7 +15,6 @@
 h1 {
   text-align: center;
   padding-top: 150px;
-  font-weight: bolder !important;
   font-size: 25px;
 }
 
@@ -47,7 +46,7 @@ button {
   text-align: center;
 }
 
-/* Questions */
+/* Quiz questions */
 h2 {
   text-align: center;
   font-size: 20px;
@@ -71,8 +70,6 @@ li {
   font-size: 22px;
   padding-bottom: 1rem;
 }
-
-#initialButton {}
 
 /* Highscore page*/
 .endGame {
