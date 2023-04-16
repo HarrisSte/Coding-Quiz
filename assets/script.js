@@ -31,10 +31,10 @@ var questionIndex = 0;
 var quizQuestions = [
   {
     question: "What is an example of a Boolean response?",
-    one: "A sequence of text",
+    one: "An array",
     two: "True/false",
-    three: "use of numbers",
-    four: "An array with quotes",
+    three: "Numerical",
+    four: "A function in JavaScript",
     correct: "True/false",
   },
   {
@@ -55,14 +55,14 @@ var quizQuestions = [
   },
   {
     question: "JavaScript allows us to...?",
-    one: "Setting the structure of the application",
+    one: "Set the structure of the application",
     two: "Add functionality to our web application",
     three: "Move through the styling of our web application",
     four: "All of the above",
     correct: "Add functionality to our web application",
   },
   {
-    question: "GitLab is a _______ repo where we can store our _______ code",
+    question: "GitLab is a _______ repository where we can store our _______ code",
     one: "SSD/HDD",
     two: "PC/cloud",
     three: "remote/local",
@@ -73,7 +73,7 @@ var quizQuestions = [
     question: "Functions within JavaScript are...",
     one: "types of methods",
     two: "a set of instructions on what we want the code to do",
-    three: "what allow us to .stringify",
+    three: "what allows us to .stringify",
     four: "There is no such thing as functions in JavaScript",
     correct: "a set of instructions on what we want the code to do",
   },
