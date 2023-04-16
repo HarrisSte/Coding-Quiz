@@ -10,7 +10,7 @@ Once the quiz is comeplete, either through answering the questions or letting th
 
 # Link
 
-ADD LINK TO DEPLOYED SITE HERE
+https://harrisste.github.io/Coding-Quiz/
 
 # Screenshot
 
